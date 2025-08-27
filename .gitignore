@@ -1,7 +1,10 @@
+client*/
+personal/
+work/
+node_modules/
 .DS_Store
-.vscode
 .idea
-node_modules
+.vscode
 package-lock.json
 yarn.lock
 loki.txt

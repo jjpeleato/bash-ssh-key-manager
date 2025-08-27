@@ -5,6 +5,7 @@
 # Usage: ./initialize.sh
 
 ENV_FILE="loki.txt"
+ENV_USER="$(whoami)@$(hostname -s)"
 
 # Check if the ENV_FILE exists
 if [ -f "$ENV_FILE" ]; then
@@ -16,7 +17,7 @@ if [ -f "$ENV_FILE" ]; then
     exit 1
 else
     echo
-    echo "🚀 File \"$ENV_FILE\" does not exist. Performing initialization..."
+    echo "🚀 Performing initialization... 🚀"
     echo
     touch "$ENV_FILE"
 fi
@@ -25,8 +26,8 @@ fi
 echo
 echo "Step 1️⃣"
 echo
-echo "How many environments do you want to set up? (e.g., 1 for personal use, 2 for personal and work, etc.)"
-echo "Press ENTER to skip and use the default (1):"
+echo "How many environments do you want to set up? Press ENTER to skip and use the default (1):"
+echo
 read -r ENV_COUNT
 ENV_COUNT=${ENV_COUNT:-1}
 
@@ -39,10 +40,11 @@ echo "You have chosen to set up $ENV_COUNT environment(s)."
 ENV_NAMES=()
 for ((i=1; i<=ENV_COUNT; i++)); do
     echo
-    echo "👇 Setting up environment $i..."
+    echo "🚧 Setting up environment $i..."
     echo
     echo "If you want to use an existing environment, write the exact same name."
     echo "Enter the name for environment $i (e.g., personal, work, client_odin, client_thor, etc):"
+    echo
     read -r ENV_NAME
     ENV_NAME=${ENV_NAME:-env$i}
 
@@ -61,9 +63,35 @@ echo
 for ENV_NAME in "${ENV_NAMES[@]}"; do
     ENV_DIR="./$ENV_NAME"
     if [ ! -d "$ENV_DIR" ]; then
-        echo "Created directory: $ENV_DIR"
+        echo "Created directory: $ENV_DIR ✅"
         mkdir -p "$ENV_DIR"
     else
-        echo "Directory already exists: $ENV_DIR"
+        echo "Directory already exists: $ENV_DIR ⚠️"
     fi
 done
+
+
+# Create ssh-keys for each environment.
+echo
+echo "Step 4️⃣"
+echo
+
+for ENV_NAME in "${ENV_NAMES[@]}"; do
+    KEY_PATH="./$ENV_NAME/id_rsa"
+    if [ ! -f "$KEY_PATH" ]; then
+        echo
+        echo "🔑 Generating SSH key for environment: $ENV_NAME"
+        echo
+        ssh-keygen -t ed25519 -C "$ENV_USER" -f "$KEY_PATH"
+        echo
+        echo "SSH key generated at: $KEY_PATH ✅"
+    else
+        echo
+        echo "❌ SSH key already exists for environment $ENV_NAME at $KEY_PATH"
+        echo "If you want to regenerate the key, please delete the existing key at $KEY_PATH and run this script again."
+    fi
+done
+
+echo
+echo "🎉 Initialization complete! 🎉"
+echo
