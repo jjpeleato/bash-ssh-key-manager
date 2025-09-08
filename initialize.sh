@@ -4,6 +4,9 @@
 # It should be run once after cloning the repository.
 # Usage: ./initialize.sh
 
+clear
+
+# Define the environment file and user info
 ENV_FILE="loki.txt"
 ENV_USER="$(whoami)@$(hostname -s)"
 
