@@ -39,7 +39,7 @@ Este script simplifica el proceso, permitiendo crear y cambiar rápidamente entr
    cd ~
    rm -rf ssh-key-manager
    ```
-4. ¡Fin y feliz uso!
+5. ¡Fin y feliz uso!
 
 ### Uso
 
@@ -130,6 +130,6 @@ Para errores o funcionalidades nuevas, por favor, abre un `issue` en el reposito
 
 ### Fin
 
-Más información en los siguientes `commits`. Si es necesario.
+Más información en los siguientes commits. Si es necesario.
 
 Saludos, **@jjpeleato**.
