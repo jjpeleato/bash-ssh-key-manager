@@ -1,0 +1,12 @@
+client*/
+personal/
+work/
+node_modules/
+.DS_Store
+.idea
+.vscode
+known_hosts*
+id_rsa*
+package-lock.json
+yarn.lock
+loki.txt

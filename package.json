@@ -1,0 +1,41 @@
+{
+  "name": "bash-ssh-key-manager",
+  "description": "Manage multiple SSH keys and switch between them easily.",
+  "keywords": [
+    "ssh",
+    "keys",
+    "ssh-key",
+    "manager",
+    "bash",
+    "script",
+    "cli",
+    "tool",
+    "utility",
+    "open-source"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjpeleato/bash-ssh-key-manager.git"
+  },
+  "author": "jjpeleato",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "commit": "cz",
+    "prepare": "husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7"
+  }
+}
