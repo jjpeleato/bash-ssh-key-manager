@@ -1,6 +1,6 @@
 {
   "name": "bash-ssh-key-manager",
-  "description": "A simple Bash script to manage and switch between multiple SSH keys with ease.",
+  "description": "Manage multiple SSH keys and switch between them easily.",
   "keywords": [
     "ssh",
     "keys",

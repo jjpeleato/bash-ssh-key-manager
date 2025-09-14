@@ -3,8 +3,9 @@
 # This script initializes the project by setting up necessary configurations and dependencies.
 # It should be run once after cloning the repository.
 # Usage: ./initialize.sh
-
-clear
+#
+# - Unix-based systems only (Linux, macOS)
+#
 
 # Define the environment file and user info
 ENV_FILE="loki.txt"

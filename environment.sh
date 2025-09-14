@@ -5,8 +5,8 @@
 # for the specified environment. It first deletes any existing SSH key files, then
 # copies the new files from the selected environment directory.
 #
-
-clear
+# - Unix-based systems only (Linux, macOS)
+#
 
 # Define the environment file and files to delete/copy
 ENV_FILE="loki.txt"
@@ -55,7 +55,7 @@ for ENV_NAME in "${ENV_NAMES[@]}"; do
 done
 
 echo
-echo "Select the environment to use:"
+echo "Write the environment to use:"
 read -r ENV_SELECTED
 
 if [[ ! " ${ENV_NAMES[*]} " =~ " ${ENV_SELECTED} " ]]; then
